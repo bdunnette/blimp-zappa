@@ -27,6 +27,7 @@ jobs:
       - name: Configure AWS Credentials
         run: |
           source .venv/bin/activate
+          printenv
           aws --version
           aws configure list
           echo "Configuring AWS CLI using environment variables"
