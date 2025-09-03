@@ -1,0 +1,21 @@
+# Deploy to AWS Lambda on push to dev branch
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Deploy to AWS Lambda
+        run: uv run zappa deploy dev
