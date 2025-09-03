@@ -1,4 +1,4 @@
-# Deploy to AWS Lambda on push to dev branch
+name: Deploy to AWS Lambda Dev environment
 on:
   push:
     branches:
@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Install uv
         uses: astral-sh/setup-uv@v6
@@ -27,11 +27,8 @@ jobs:
       - name: Configure AWS Credentials
         run: |
           source .venv/bin/activate
-          echo "Configuring AWS CLI using environment variables"
           aws configure set region us-east-1
-          echo "Setting AWS Access Key ID to $AWS_ACCESS_KEY_ID"
           aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          echo "Setting AWS Secret Access Key to $AWS_SECRET_ACCESS_KEY"
           aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
           aws configure set output json
           aws configure list
