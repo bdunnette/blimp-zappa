@@ -11,3 +11,11 @@ wheels/
 
 # Django
 *.sqlite3*
+
+# Caches
+.*_cache/
+
+# Deployment
+blimp-*.tar.gz
+blimp-*.zip
+handler_venv/

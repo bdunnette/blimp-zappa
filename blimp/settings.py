@@ -37,12 +37,15 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-15mm5pr--3f@$g^pxix8jvejza(5&djo*7_3nqti42y%ifvs-3"
+SECRET_KEY = env.str(
+    "DJANGO_SECRET_KEY",
+    default="django-insecure-15mm5pr--3f@$g^pxix8jvejza(5&djo*7_3nqti42y%ifvs-3",
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool("DJANGO_DEBUG", default=True)
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS", default=["*"])
 
 
 # Application definition
@@ -54,13 +57,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "storages",  # Required for S3 storage
+    "storages",
     "django_s3_storage",
     "django_s3_sqlite",
     "rest_framework",
     "rest_framework.authtoken",
     "drf_spectacular",
-    "import_export",
 ]
 
 MIDDLEWARE = [
@@ -148,19 +150,19 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = env.str("DJANGO_LANGUAGE_CODE", default="en-us")
 
-TIME_ZONE = "UTC"
+TIME_ZONE = env.str("DJANGO_TIME_ZONE", default="UTC")
 
-USE_I18N = True
+USE_I18N = env.bool("DJANGO_USE_I18N", default=True)
 
-USE_TZ = True
+USE_TZ = env.bool("DJANGO_USE_TZ", default=True)
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = env.str("DJANGO_STATIC_URL", default="static/")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

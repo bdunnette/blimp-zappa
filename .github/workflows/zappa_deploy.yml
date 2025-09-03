@@ -1,0 +1,40 @@
+# Deploy to AWS Lambda on push to dev branch
+on:
+  push:
+    branches:
+      - dev
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Set up Python
+        run: uv python install
+
+      - name: Install dependencies
+        run: uv sync
+
+      - name: Configure AWS Credentials
+        run: |
+          source .venv/bin/activate
+          echo "Configuring AWS CLI using environment variables"
+          aws configure set region us-east-1
+          echo "Setting AWS Access Key ID to $AWS_ACCESS_KEY_ID"
+          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+          echo "Setting AWS Secret Access Key to $AWS_SECRET_ACCESS_KEY"
+          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+          aws configure set output json
+          aws configure list
+
+      - name: Deploy to AWS Lambda
+        run: uv run zappa update dev
