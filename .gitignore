@@ -18,3 +18,4 @@ wheels/
 # Deployment
 blimp-*.tar.gz
 blimp-*.zip
+handler_venv/
