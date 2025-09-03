@@ -3,15 +3,13 @@ name = "blimp-zappa"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
-    "crispy-bootstrap5>=2025.6",
     "django>=5.2.6",
-    "django-allauth[mfa]>=65.11.1",
-    "django-crispy-forms>=2.4",
     "django-environ>=0.12.0",
-    "django-import-export>=4.3.9",
     "django-s3-sqlite>=0.0.5",
+    "django-s3-storage>=0.15.0",
+    "django-storages>=1.14.6",
     "djangorestframework>=3.16.1",
     "drf-spectacular>=0.28.0",
     "zappa>=0.60.2",
