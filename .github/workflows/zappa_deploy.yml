@@ -17,9 +17,8 @@ jobs:
       - name: Set up Python
         run: uv python install
 
-      - name: Install AWS CLI
+      - name: Configure AWS CLI
         run: |
-          uv add awscli
           uv run aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
           uv run aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
