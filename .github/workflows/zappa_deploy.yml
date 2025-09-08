@@ -35,3 +35,9 @@ jobs:
 
       - name: Deploy to AWS Lambda
         run: uv run zappa update dev
+
+      - name: Run Database Migrations
+        run: uv run zappa manage dev migrate
+
+      - name: Verify Deployment
+        run: uv run zappa status dev
