@@ -1,5 +1,5 @@
 version = 1
-revision = 2
+revision = 3
 requires-python = ">=3.12"
 
 [[package]]
@@ -470,18 +470,6 @@ wheels = [
 ]
 
 [[package]]
-name = "kappa"
-version = "0.6.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "boto3" },
-    { name = "click" },
-    { name = "placebo" },
-    { name = "pyyaml" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/ee/fa/1b8328d2199520ef5a257f8a2e9315ed0b0194e353a152ca1959490dfbc8/kappa-0.6.0.tar.gz", hash = "sha256:4b5b372872f25d619e427e04282551048dc975a107385b076b3ffc6406a15833", size = 29680, upload-time = "2016-08-03T18:02:30.132Z" }
-
-[[package]]
 name = "markupsafe"
 version = "3.0.2"
 source = { registry = "https://pypi.org/simple" }
@@ -939,7 +927,7 @@ wheels = [
 
 [[package]]
 name = "zappa"
-version = "0.60.2"
+version = "0.61.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "argcomplete" },
@@ -947,7 +935,6 @@ dependencies = [
     { name = "durationpy" },
     { name = "hjson" },
     { name = "jmespath" },
-    { name = "kappa" },
     { name = "pip" },
     { name = "placebo" },
     { name = "python-dateutil" },
@@ -961,7 +948,7 @@ dependencies = [
     { name = "werkzeug" },
     { name = "wheel" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/42/26/8a8cfebe0510d9a9cb9d29ad6ac2a38fe9d8104dd250186581f664a105cc/zappa-0.60.2.tar.gz", hash = "sha256:f20a07e8e447c954c50adafe93dd10c0c8261d70e7818bb2d4ba6023c6114542", size = 209147, upload-time = "2025-06-02T09:47:23.14Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/67/62/3bb22e88ad4d22edbb1f0c0506c51f1ebf4e919276fa762dda5e427498eb/zappa-0.61.1.tar.gz", hash = "sha256:2bd99790cfce52fab423a9cfee7a5dd879a74c91ed6d28c620f06e62927b2216", size = 226857, upload-time = "2025-11-23T01:15:39.704Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/11/dc/197934633fe04a161645da00ef2079879af4c0b4d0a472026960ec6a89b9/zappa-0.60.2-py3-none-any.whl", hash = "sha256:876b81210cc152b617b3ddd988a9376023d0b00e47a195d285d646198ef45563", size = 120540, upload-time = "2025-06-02T09:47:21.531Z" },
+    { url = "https://files.pythonhosted.org/packages/7a/95/9c15ecd526948bb4c57a2faa032dd4890eed12a0f975b20a0af8a3200b47/zappa-0.61.1-py3-none-any.whl", hash = "sha256:71bf3e524aa2486f459eacb70fec121b98057cf8f62a8607f2cb36b8848a5762", size = 130952, upload-time = "2025-11-23T01:15:37.815Z" },
 ]
